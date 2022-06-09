@@ -25,18 +25,18 @@ function LoginPage(props) {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${API_URL}/api/auth/login`, requestBody)
       .then((response) => {
-      
         console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/paintings"); 
+        navigate("/paintings");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.errors[0].defaultMessage;
-        setErrorMessage(errorDescription);
+        console.log(error);
+        //const errorDescription = error.response.data.errors[0].defaultMessage;
+        //setErrorMessage(errorDescription);
       });
   };
 
@@ -46,11 +46,22 @@ function LoginPage(props) {
       <h5>Welcome back!</h5>
 
       <form onSubmit={handleLoginSubmit}>
-        <label> <h1> </h1></label>
-        
-        <input type="email" name="email" placeholder="Email" value={email} onChange={handleEmail} />
+        <label>
+          {" "}
+          <h1> </h1>
+        </label>
 
-        <label><h1> </h1> </label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={handleEmail}
+        />
+
+        <label>
+          <h1> </h1>{" "}
+        </label>
         <input
           type="password"
           name="password"
@@ -58,14 +69,17 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
-          <button variant="dark" type="submit">LOGIN</button>
-       
-        
+        <button variant="dark" type="submit">
+          LOGIN
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link className="home-nav" to={"/signup"}> Sign Up</Link>
+      <Link className="home-nav" to={"/signup"}>
+        {" "}
+        Sign Up
+      </Link>
     </div>
   );
 }

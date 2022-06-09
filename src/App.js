@@ -8,6 +8,7 @@ import SignupPage from "./pages/SignupPage";
 import IsAnon from "./components/IsAnon";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </IsPrivate>
           }
         />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route
           path="/signup"
           element={

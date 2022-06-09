@@ -8,7 +8,7 @@ function IsAnon({ children }) {
   if (isLoading) return <p>Loading ...</p>;
 
   if (isLoggedIn) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/paintings" />;
   } else {
     return children;
   }

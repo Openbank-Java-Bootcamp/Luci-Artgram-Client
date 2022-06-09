@@ -3,19 +3,19 @@ import Logo from "../assets/ARTGRAM.png";
 import Search from "../assets/search.png";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Button, Form, FormControl, Nav } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
     <div className="navbar-container">
-      <nav fixed="top" expand="lg" bg="light">
+      <nav className="nav-fixed">
         {isLoggedIn && (
           <>
             <img src={Logo} width="50" height="50" alt="logo" />
             <Link className="home-nav" to="/paintings">
-              HOME
+              GALLERY
             </Link>
             <Link className="home-nav" to="/profile">
               {user && user.name}

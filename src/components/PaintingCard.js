@@ -1,15 +1,17 @@
+import { Button } from "bootstrap";
 import { Link } from "react-router-dom";
 
 
-function PaintingCard({ description, picturePath, title, id }) {
+function PaintingCard({ picturePath, title, id }) {
   return (
-    <div className="PictureCard card">
-      <Link to={`/paintings/${id}`}>
-        <img src={picturePath} alt={title}/>
+    <div className="PictureCard card" style={{ width: '30rem' }}>
+      <Link className="linkCard" to={`/paintings/${id}`}>
+        <img variant="top" width={"300px"} src={picturePath} alt={title}/>
         <h3>{title}</h3>
-        <p style={{ maxWidth: "400px" }}>{description}</p>
+        <h4>💜</h4>
       </Link>
     </div>
+    
   );
 }
 

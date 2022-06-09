@@ -1,4 +1,4 @@
-// src/pages/ProjectListPage.js
+
 
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -8,7 +8,7 @@ import PaintingCard from "../components/PaintingCard";
 const API_URL = "http://localhost:5005";
 
 function HomePage() {
-  const [paintings, setPainting] = useState([]);
+  const [paintings, setPaintings] = useState([]);
 
   const getAllPaintings = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -17,7 +17,7 @@ function HomePage() {
       .get(`${API_URL}/api/paintings`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setPainting(response.data))
+      .then((response) => setPaintings(response.data))
       .catch((error) => console.log(error));
   };
 
@@ -27,7 +27,6 @@ function HomePage() {
 
   return (
     <div className="PaintingListPage">
-      <AddPainting refreshPaintings={getAllPaintings} />
 
       {paintings.map((painting) => (
         <PaintingCard key={painting.id} {...painting} />
