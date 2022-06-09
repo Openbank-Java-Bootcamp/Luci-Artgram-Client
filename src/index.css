@@ -11,3 +11,89 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Welcome{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.wlc-img{
+  margin-top: 100px;
+  margin-right: 30px;
+}
+
+.home-nav{
+  font-size: 20px;
+  text-decoration: none;
+  color: Black;
+  margin: 18px;;
+  padding: 20px auto;
+}
+
+.home-nav:hover{
+  color: rgb(221,46,124);
+}
+
+.wlc-button{
+margin: 225px 20px;
+text-align: justify;
+  
+}
+
+.cont-but{
+  margin-top: 70px;
+}
+
+.SignupPage form,
+.LoginPage form {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: justify;
+}
+
+.SignupPage h1,
+.LoginPage h1 {
+  margin-top: 5px;
+}
+
+.SignupPage,
+.LoginPage {
+  background: rgb(255, 255, 255);
+  border: 1px solid grey;
+  box-shadow: 0px 2px 3px grey;
+  width: 500px;
+  text-align: center;
+  margin: 60px auto;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.SignupPage button,
+.LoginPage button {
+  padding:0.28em 5.5em;
+  border-radius: 8px;
+  color:#fff;
+  background-color:rgb(221,46,124);
+  font-size:1.1em;
+  border:0;
+  cursor:pointer;
+  margin:1em;
+}
+
+.SignupPage input,
+.LoginPage input{
+  margin-top: 15px;
+  
+}
+
+.logo{
+  width: 220px;
+}
+
+
+
