@@ -14,7 +14,7 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link className="home-nav" to="/paintings">
-              <Button variant="light" onClick={logOutUser}>
+              <Button variant="light">
                 GALLERY
               </Button>
             </Link>

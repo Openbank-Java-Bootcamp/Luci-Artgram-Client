@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AddPainting from "../components/AddPainting";
+import AddPainting from "./AddPaintingPage";
 import PaintingCard from "../components/PaintingCard";
 
 const API_URL = "http://localhost:5005";

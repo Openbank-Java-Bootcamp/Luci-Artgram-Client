@@ -134,3 +134,7 @@ text-align: justify;
   margin: 10px;
 
 }
+
+.PaintingDetails img{
+  width: 100%;
+}

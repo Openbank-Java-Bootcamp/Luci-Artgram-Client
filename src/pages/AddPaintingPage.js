@@ -1,13 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
-function AddPainting(props) {
+function AddPaintingPage(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   //const [base64TextString, setbase64TextString] = useState("");
+  const navigate = useNavigate();
 
   const onFormChange = (e) => {
     console.log("file to upload:", e.target.files[0]);
@@ -41,7 +43,8 @@ function AddPainting(props) {
         setTitle("");
         setDescription("");
 
-        //props.refreshPaintings();
+        // props.refreshPaintings();
+        navigate("/paintings");
       })
       .catch((error) => console.log(error));
   };
@@ -54,14 +57,7 @@ function AddPainting(props) {
         <label>
           <h1></h1>
         </label>
-        {/* <input
-          type="text"
-          name="picturePath"
-          value={picturePath}
-          placeholder="Picture"
-          onChange={(e) => setPicturePath(e.target.value)}
-        /> */}
-        <label>Image</label>
+        <label><h1></h1></label>
         <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
         <label>
           <h1></h1>
@@ -89,4 +85,4 @@ function AddPainting(props) {
   );
 }
 
-export default AddPainting;
+export default AddPaintingPage;

@@ -1,13 +1,11 @@
-
-
 import { useState, useEffect } from "react";
 import axios from "axios";
-import AddPainting from "../components/AddPainting";
 import PaintingCard from "../components/PaintingCard";
+import { Container, Row, Col } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
-function HomePage() {
+function GalleryPage() {
   const [paintings, setPaintings] = useState([]);
 
   const getAllPaintings = () => {
@@ -27,12 +25,15 @@ function HomePage() {
 
   return (
     <div className="PaintingListPage">
-
-      {paintings.map((painting) => (
-        <PaintingCard key={painting.id} {...painting} />
-      ))}
+      <Container>
+        <Row>
+          {paintings.map((painting) => (
+            <PaintingCard key={painting.id} {...painting} />
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 }
 
-export default HomePage;
+export default GalleryPage;
