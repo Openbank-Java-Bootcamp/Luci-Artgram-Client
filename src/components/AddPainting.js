@@ -7,6 +7,24 @@ function AddPainting(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  //const [base64TextString, setbase64TextString] = useState("");
+
+  const onFormChange = (e) => {
+    console.log("file to upload:", e.target.files[0]);
+    let file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = _handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+    }
+  };
+
+  const _handleReaderLoaded = (readerEvt) => {
+    let binaryString = readerEvt.target.result;
+    setPicturePath(btoa(binaryString));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +41,7 @@ function AddPainting(props) {
         setTitle("");
         setDescription("");
 
-        props.refreshPaintings();
+        //props.refreshPaintings();
       })
       .catch((error) => console.log(error));
   };
@@ -32,17 +50,19 @@ function AddPainting(props) {
     <div className="AddPainting">
       <h3>Add Painting</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onChange={(e) => onFormChange(e)}>
         <label>
           <h1></h1>
         </label>
-        <input
+        {/* <input
           type="text"
           name="picturePath"
           value={picturePath}
           placeholder="Picture"
           onChange={(e) => setPicturePath(e.target.value)}
-        />
+        /> */}
+        <label>Image</label>
+        <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
         <label>
           <h1></h1>
         </label>

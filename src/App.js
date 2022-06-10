@@ -9,6 +9,9 @@ import IsAnon from "./components/IsAnon";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import ProfilePage from "./pages/ProfilePage";
+import NewPaintingPage from "./pages/NewPaintingPage";
+import PaintingDetailsPage from "./pages/PaintingDetailsPage";
+import EditPaintingPage from "./pages/EditPaintingPage";
 
 function App() {
   return (
@@ -24,7 +27,25 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/paintings/:paintingId"
+          element={
+            <IsPrivate>
+              <PaintingDetailsPage />
+            </IsPrivate>
+          }
+        />
+         <Route
+          path="/paintings/edit/:paintingId"
+          element={
+            <IsPrivate>
+              <EditPaintingPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route path="/profile" element={<IsAnon>{<ProfilePage />}</IsAnon>} />
+        <Route path="/newPainting" element={<IsPrivate>{<NewPaintingPage/>}</IsPrivate>}/>
         <Route
           path="/signup"
           element={

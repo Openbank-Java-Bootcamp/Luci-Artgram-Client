@@ -3,8 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Logo from "../assets/ARTGRAM.png";
-import { AiOutlineMail } from "react-icons/ai";
-import { RiLockPasswordLine } from "react-icons/ri";
+
 
 const API_URL = "http://localhost:5005";
 
@@ -33,11 +32,8 @@ function LoginPage(props) {
         authenticateUser();
         navigate("/paintings");
       })
-      .catch((error) => {
-        console.log(error);
-        //const errorDescription = error.response.data.errors[0].defaultMessage;
-        //setErrorMessage(errorDescription);
-      });
+      .catch((error) => console.log(error));
+ 
   };
 
   return (

@@ -1,39 +1,39 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AddPainting from "../components/AddPainting";
 import PaintingCard from "../components/PaintingCard";
 
 const API_URL = "http://localhost:5005";
 
-function ProfilePage(props){
-    const [userPaintings, setUserPaintings] = useState([]);
+function ProfilePage(props) {
+  const [paintings, setPaintings] = useState([]);
 
-    const getAllUserPaintings = () => {
-      const storedToken = localStorage.getItem("authToken");
-  
-      axios
-        .get(`${API_URL}/api/paintings`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .then((response) => setUserPaintings(response.data))
-        .catch((error) => console.log(error));
-    };
-  
-    useEffect(() => {
-      getAllUserPaintings();
-    }, []);
+  const getAllPaintings = () => {
+    const storedToken = localStorage.getItem("authToken");
 
-return(
+    axios
+      .get(`${API_URL}/api/paintings`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setPaintings(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllPaintings();
+  }, []);
+
+  return (
     <div className="ProfilePage">
-        <div>
-               <AddPainting refreshPaintings={getAllUserPaintings}/>
-        </div>
-     
-      
+      <div>
+      <Link to="/newPainting">
+        NEW PAINTING
+      </Link>
         
+      </div>
     </div>
-    
-)
+  );
 }
 
 export default ProfilePage;
