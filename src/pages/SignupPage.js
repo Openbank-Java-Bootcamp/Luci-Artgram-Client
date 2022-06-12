@@ -9,6 +9,7 @@ function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -16,10 +17,28 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
+  const handleAvatar = (e) => setAvatar(e.target.value);
+
+  const onFormChange = (e) => {
+    console.log("file to upload:", e.target.files[0]);
+    let file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = _handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(file);
+    }
+  };
+
+  const _handleReaderLoaded = (readerEvt) => {
+    let binaryString = readerEvt.target.result;
+    setAvatar(btoa(binaryString));
+  };
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password, name };
+    const requestBody = { email, password, name, avatar };
 
     axios
       .post(`${API_URL}/api/auth/signup`, requestBody)
@@ -33,11 +52,11 @@ function SignupPage(props) {
     <div className="SignupPage">
       <img className="logo" src={Logo} alt="logo" />
       <p>
-        Sign up to be inspired with incredible paintings <br/> from diverse styles and
-        genres around the world.
+        Sign up to be inspired with incredible paintings <br /> from diverse
+        styles and genres around the world.
       </p>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form onSubmit={handleSignupSubmit} onChange={(e) => onFormChange(e)}>
         <label>
           <h1></h1>
         </label>
@@ -70,6 +89,10 @@ function SignupPage(props) {
           value={name}
           onChange={handleName}
         />
+        <label>
+          <h1></h1>
+        </label>
+        <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" onChange={handleAvatar}/>
 
         <button type="submit">SIGN UP</button>
       </form>

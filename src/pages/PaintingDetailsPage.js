@@ -47,7 +47,7 @@ function PaintingDetailsPage(props) {
           </Link>
 
           <Link to={`/paintings/edit/${paintingId}`}>
-            <Button>Edit Painting</Button>
+            <Button variant="dark">Edit Painting</Button>
           </Link>
         </Col>
       </Row>

@@ -8,7 +8,8 @@ function AddPaintingPage(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  //const [base64TextString, setbase64TextString] = useState("");
+  //IT'S NOT SAVING USER ID...
+  
   const navigate = useNavigate();
 
   const onFormChange = (e) => {
@@ -79,7 +80,7 @@ function AddPaintingPage(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add Painting</button>
       </form>
     </div>
   );

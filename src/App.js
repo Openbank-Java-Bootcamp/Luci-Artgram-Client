@@ -1,5 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage";
@@ -12,11 +11,12 @@ import PaintingDetailsPage from "./pages/PaintingDetailsPage";
 import EditPaintingPage from "./pages/EditPaintingPage";
 import GalleryPage from "./pages/GalleryPage";
 import AddPaintingPage from "./pages/AddPaintingPage";
+import Header from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route

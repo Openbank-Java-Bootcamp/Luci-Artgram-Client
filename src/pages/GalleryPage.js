@@ -26,7 +26,7 @@ function GalleryPage() {
   return (
     <div className="PaintingListPage">
       <Container>
-        <Row>
+        <Row md={3}>
           {paintings.map((painting) => (
             <PaintingCard key={painting.id} {...painting} />
           ))}
