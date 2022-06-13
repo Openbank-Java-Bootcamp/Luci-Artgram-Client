@@ -23,18 +23,26 @@ function Header() {
             <Nav className="me-auto">
               {isLoggedIn && (
                 <>
-                  <Nav.Link href="/paintings">GALLERY</Nav.Link>
                   <Navbar.Brand href="/paintings">
                     <img
                       src={Logo}
-                      width="30"
-                      height="30"
+                      width="45"
                       className="d-inline-block align-top"
                       alt="logo"
                     />
                   </Navbar.Brand>
-                  <NavDropdown title={user.name} id="basic-nav-dropdown">
-                    <NavDropdown.Item href={`/users/${user.name}`}>
+                  <Nav.Link href="/paintings">GALLERY</Nav.Link>
+                  <NavDropdown
+                    title={
+                      <img
+                        src={user && user.avatar}
+                        alt="user-avatar"
+                        width="30"
+                      />
+                    }
+                    id="basic-nav-dropdown"
+                  >
+                    <NavDropdown.Item href={`/users/${user.id}`}>
                       {user && user.name}'s Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
@@ -54,7 +62,6 @@ function Header() {
                   </Form>
                 </>
               )}
-
               {!isLoggedIn && (
                 <>
                   {" "}

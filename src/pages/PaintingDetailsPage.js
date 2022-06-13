@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import AddComment from "../components/AddComment";
+import CommentCard from "../components/CommentCard";
 
 const API_URL = "http://localhost:5005";
 
@@ -42,6 +44,9 @@ function PaintingDetailsPage(props) {
               </>
             )}
           </div>
+          <AddComment refreshPainting={getPainting} paintingId={paintingId}/>
+
+          {painting && painting.comments.map((comment) => <CommentCard key={comment.id} {...comment}/> )}
           <Link to="/paintings">
             <Button variant="light">Back to Gallery</Button>
           </Link>

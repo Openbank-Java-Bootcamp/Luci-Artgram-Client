@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Col, Button } from "react-bootstrap";
+import LikeButton from "./LikeButton";
 
 function PaintingCard({ picturePath, title, id }) {
   return (
@@ -14,8 +15,10 @@ function PaintingCard({ picturePath, title, id }) {
                 alt={title}
               />
               <h3>{title}</h3>
-              <h4>💜</h4>
-            </Link>
+            
+            </Link> 
+              
+            <LikeButton/>
           </div>
         </Col>
   

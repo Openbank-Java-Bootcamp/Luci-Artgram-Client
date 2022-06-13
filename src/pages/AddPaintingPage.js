@@ -8,7 +8,6 @@ function AddPaintingPage(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  //IT'S NOT SAVING USER ID...
   
   const navigate = useNavigate();
 

@@ -35,7 +35,7 @@ function App() {
             </IsPrivate>
           }
         />
-         <Route
+        <Route
           path="/paintings/edit/:paintingId"
           element={
             <IsPrivate>
@@ -44,8 +44,15 @@ function App() {
           }
         />
 
-        <Route path="/profile" element={<IsAnon>{<ProfilePage />}</IsAnon>} />
-        <Route path="/newPainting" element={<IsPrivate>{<AddPaintingPage/>}</IsPrivate>}/>
+        <Route
+          path="/users/:userId"
+          element={<IsPrivate>{<ProfilePage />}</IsPrivate>}
+        />
+
+        <Route
+          path="/newPainting"
+          element={<IsPrivate>{<AddPaintingPage />}</IsPrivate>}
+        />
         <Route
           path="/signup"
           element={
