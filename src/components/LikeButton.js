@@ -8,7 +8,7 @@ function LikeButton() {
   return (
     <div className="counter">
       <Button
-        variant="outline-secondary"
+        variant="light"
         onClick={() => {setLiked((prevLike) => !prevLike) ; setCounter(counter + 1)}}
       >
         {liked ? "❤️" : "🤍"}

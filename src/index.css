@@ -23,8 +23,12 @@ code {
   margin-right: 30px;
 }
 
-.navbar:hover{
-  color: rgb(221,46,124);
+.cards{
+  margin-top: 60px;
+}
+
+.navbar{
+  align-items:center;
 }
 
 .wlc-button{
@@ -44,7 +48,7 @@ text-align: justify;
   flex-direction: column;
   align-items:center;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: justify;
 }
 
@@ -69,12 +73,12 @@ text-align: justify;
 
 .SignupPage button,
 .LoginPage button,
-.AddPainting button {
-  padding:0.28em 5.5em;
+.AddPainting button
+.AddComment button {
+  padding:0.1em 2.5em;
   border-radius: 8px;
   color:#fff;
   background-color:rgb(221,46,124);
-  font-size:1.1em;
   border:0;
   cursor:pointer;
   margin:1em;
@@ -94,11 +98,22 @@ text-align: justify;
   width: 370px;
 }
 
+.home-nav{
+  text-decoration: none;
+  color: black;
+}
 
+.home-nav:hover{
+  color: rgb(221,46,124);
+}
 
 .linkCard{
   text-decoration: none;
   color: black;
+}
+
+.linkCard:hover{
+  color: rgb(94, 93, 93);
 }
 
 .PaintingListPage{

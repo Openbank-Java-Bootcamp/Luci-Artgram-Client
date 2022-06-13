@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Logo from "../assets/ARTGRAM.png";
+import { Form } from "react-bootstrap";
 
 
 const API_URL = "http://localhost:5005";
@@ -41,13 +42,13 @@ function LoginPage(props) {
       <img className="logo" src={Logo} alt="logo" />
       <h5>Welcome back!</h5>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>
+      <Form onSubmit={handleLoginSubmit}>
+        <Form.Label>
           {" "}
           <h1> </h1>
-        </label>
+        </Form.Label>
 
-        <input
+        <Form.Control
           type="email"
           name="email"
           placeholder="Email"
@@ -55,10 +56,10 @@ function LoginPage(props) {
           onChange={handleEmail}
         />
 
-        <label>
+        <Form.Label>
           <h1> </h1>{" "}
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="password"
           name="password"
           placeholder="Password"
@@ -68,13 +69,13 @@ function LoginPage(props) {
         <button variant="dark" type="submit">
           LOGIN
         </button>
-      </form>
+      </Form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
       <Link className="home-nav" to={"/signup"}>
         {" "}
-        Sign Up
+        SIGN UP
       </Link>
     </div>
   );

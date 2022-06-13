@@ -1,27 +1,29 @@
 import { Link } from "react-router-dom";
-import { Col, Button } from "react-bootstrap";
+import { Col, Button, Card } from "react-bootstrap";
 import LikeButton from "./LikeButton";
 
-function PaintingCard({ picturePath, title, id }) {
+function PaintingCard({ picturePath, title, id, user }) {
   return (
-    
-        <Col md={3}>
-          <div className="PictureCard card" style={{ width: "30rem" }}>
-            <Link className="linkCard" to={`/paintings/${id}`}>
-              <img
-                variant="top"
-                width={"300px"}
-                src={`data:image/png;base64,${picturePath}`}
-                alt={title}
-              />
-              <h3>{title}</h3>
-            
-            </Link> 
-              
-            <LikeButton/>
-          </div>
-        </Col>
-  
+    <div>
+      <Card className="cards" style={{ width: "20rem" }}>
+        <Card.Body>
+          <Card.Link className="linkCard" href={`/paintings/${id}`}>
+            <Card.Img
+              variant="top"
+              src={`data:image/png;base64,${picturePath}`}
+              alt={title}
+            />
+            <Card.Body>
+              <Card.Title>
+                {title} - {user.name} 
+              </Card.Title>
+             
+            </Card.Body>
+          </Card.Link> 
+          <LikeButton />
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

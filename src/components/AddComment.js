@@ -1,21 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
 function AddComment(props) {
-  const [userName, setUserName] = useState("");
   const [comment, setComment] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
-    //  <== UPDATE THE FUNCTION
+  
     e.preventDefault();
 
-    // We need the project id when creating the new task
+   
     const { paintingId } = props;
-    // Create an object representing the body of the POST request
-    const requestBody = { userName, comment, paintingId };
+
+    const requestBody = {comment, paintingId };
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -23,13 +25,10 @@ function AddComment(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // Reset the state to clear the inputs
-        setUserName("");
         setComment("");
 
-        // Invoke the callback function coming through the props
-        // from the ProjectDetailsPage, to refresh the project details
         props.refreshProject();
+        navigate("/paintings");
       })
       .catch((error) => console.log(error));
   };

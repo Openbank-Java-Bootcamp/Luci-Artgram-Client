@@ -47,6 +47,7 @@ function PaintingDetailsPage(props) {
           <AddComment refreshPainting={getPainting} paintingId={paintingId}/>
 
           {painting && painting.comments.map((comment) => <CommentCard key={comment.id} {...comment}/> )}
+         <p></p>
           <Link to="/paintings">
             <Button variant="light">Back to Gallery</Button>
           </Link>

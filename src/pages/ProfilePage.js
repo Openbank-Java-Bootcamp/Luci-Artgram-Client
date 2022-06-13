@@ -29,7 +29,7 @@ function ProfilePage(props) {
   return (
     <div className="ProfilePage">
       <Container>
-        <Row md={3}>
+        <Row md={4}>
           {userPaintings.map((paint) => (
             <PaintingCard key={paint.id} {...paint} />
           ))}

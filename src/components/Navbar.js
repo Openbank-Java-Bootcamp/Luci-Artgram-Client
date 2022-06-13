@@ -16,8 +16,8 @@ function Header() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <div className="navbar">
-      <Navbar fixed="top" expand="xl" bg="light">
+    <div >
+      <Navbar className="navbar"  expand="xl" bg="light">
         <Container>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -69,8 +69,7 @@ function Header() {
                   <Navbar.Brand href="/">
                     <img
                       src={Logo}
-                      width="30"
-                      height="30"
+                      width="45"
                       className="d-inline-block align-top"
                       alt="logo"
                     />

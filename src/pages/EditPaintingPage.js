@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
@@ -76,37 +77,41 @@ function EditPaintingPage(props) {
     <div className="AddPainting">
       <h3>Edit Painting</h3>
 
-      <form onSubmit={handleFormSubmit} onChange={(e) => onFormChange(e)}>
-        <label>
+      <Form onSubmit={handleFormSubmit} onChange={(e) => onFormChange(e)}>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <label>
+        </Form.Label>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
-        <label>
+        </Form.Label>
+        <Form.Control type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           name="title"
           value={title}
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <textarea
+        </Form.Label>
+        <Form.Control
           type="text"
           name="description"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">EDIT</button>
-      </form>
-      <button onClick={deletePainting}>Delete Painting</button>  
+         <Form.Label>
+          <h1></h1>
+        </Form.Label>
+        <Button variant="dark" type="submit">Edit</Button>
+      </Form>
+      <p></p>
+      <Button variant="secondary" onClick={deletePainting}>Delete Painting</Button>  
     </div>
   );
 }

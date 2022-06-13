@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
@@ -51,36 +52,39 @@ function AddPaintingPage(props) {
 
   return (
     <div className="AddPainting">
-      <h3>Add Painting</h3>
+      <h3>ADD NEW PAINTING</h3>
 
-      <form onSubmit={handleSubmit} onChange={(e) => onFormChange(e)}>
-        <label>
+      <Form onSubmit={handleSubmit} onChange={(e) => onFormChange(e)}>
+        <Form.Label>
           <h1></h1>
-        </label>
+        </Form.Label>
         <label><h1></h1></label>
-        <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
-        <label>
+        <Form.Control type="file" name="image" id="file" accept=".jpeg, .png, .jpg" />
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           name="title"
           value={title}
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <textarea
+        </Form.Label>
+        <Form.Control
           type="text"
           name="description"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Add Painting</button>
-      </form>
+         <Form.Label>
+          <h1></h1>
+        </Form.Label>
+        <Button type="submit" variant="outline-dark">Add Painting</Button>
+      </Form>
     </div>
   );
 }

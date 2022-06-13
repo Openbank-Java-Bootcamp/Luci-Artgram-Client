@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/ARTGRAM.png";
 import axios from "axios";
+import { Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
@@ -56,11 +57,11 @@ function SignupPage(props) {
         styles and genres around the world.
       </p>
 
-      <form onSubmit={handleSignupSubmit} onChange={(e) => onFormChange(e)}>
-        <label>
+      <Form onSubmit={handleSignupSubmit} onChange={(e) => onFormChange(e)}>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="email"
           name="email"
           placeholder="Email"
@@ -68,10 +69,10 @@ function SignupPage(props) {
           onChange={handleEmail}
         />
 
-        <label>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="password"
           name="password"
           placeholder="Password"
@@ -79,10 +80,10 @@ function SignupPage(props) {
           onChange={handlePassword}
         />
 
-        <label>
+        <Form.Label>
           <h1></h1>
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           name="name"
           placeholder="Username"
@@ -92,17 +93,17 @@ function SignupPage(props) {
         <label>
           <h1></h1>
         </label>
-        <input type="file" name="image" id="file" accept=".jpeg, .png, .jpg" onChange={handleAvatar}/>
+        <Form.Control type="file" name="image" id="file" accept=".jpeg, .png, .jpg" onChange={handleAvatar}/>
 
         <button type="submit">SIGN UP</button>
-      </form>
+      </Form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
       <Link className="home-nav" to={"/login"}>
         {" "}
-        Login
+        LOGIN
       </Link>
     </div>
   );
