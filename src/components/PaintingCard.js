@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import { Col, Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import LikeButton from "./LikeButton";
 import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
 
-function PaintingCard({ picturePath, title, id }) {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+function PaintingCard({ picturePath, title, id, user }) {
+ 
 
   return (
     <div>
-      <Card className="cards" style={{ width: "20rem" }}>
+      <Card className="cards" style={{ width: "20rem", height: "30rem" }}>
         <Card.Body>
           <Card.Link className="linkCard" href={`/paintings/${id}`}>
             <Card.Img
@@ -18,13 +17,12 @@ function PaintingCard({ picturePath, title, id }) {
               alt={title}
             />
             <Card.Body>
-              <Card.Title>
+              <Card.Title >
                 {title} - {user && user.name} 
               </Card.Title>
              
             </Card.Body>
           </Card.Link> 
-          <LikeButton />
         </Card.Body>
       </Card>
     </div>

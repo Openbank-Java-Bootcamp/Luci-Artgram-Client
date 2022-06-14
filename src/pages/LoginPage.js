@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Logo from "../assets/ARTGRAM.png";
 import { Form } from "react-bootstrap";
-
 
 const API_URL = "http://localhost:5005";
 
@@ -15,7 +14,7 @@ function LoginPage(props) {
 
   const navigate = useNavigate();
 
-  const { storeToken, authenticateUser } = useContext(AuthContext);
+  const { storeToken, authenticateUser, user } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -31,11 +30,15 @@ function LoginPage(props) {
 
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/paintings");
       })
       .catch((error) => console.log(error));
- 
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/paintings");
+    }
+  }, [user]);
 
   return (
     <div className="LoginPage">

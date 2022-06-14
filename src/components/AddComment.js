@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+
 
 const API_URL = "http://localhost:5005";
 
 function AddComment(props) {
   const [comment, setComment] = useState("");
 
-  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
   
@@ -28,7 +28,7 @@ function AddComment(props) {
         setComment("");
 
         props.refreshPainting();
-        navigate("/paintings");
+    
       })
       .catch((error) => console.log(error));
   };

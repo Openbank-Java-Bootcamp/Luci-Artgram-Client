@@ -12,6 +12,7 @@ import EditPaintingPage from "./pages/EditPaintingPage";
 import GalleryPage from "./pages/GalleryPage";
 import AddPaintingPage from "./pages/AddPaintingPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
         <Route
           path="/paintings"
           element={
-            <IsPrivate>
+     
               <GalleryPage />
-            </IsPrivate>
+        
           }
         />
         <Route

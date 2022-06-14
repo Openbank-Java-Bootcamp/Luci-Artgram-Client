@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PaintingCard from "../components/PaintingCard";
-import { Container, Row} from "react-bootstrap";
-import { Circles } from "react-loader-spinner";
+import { Container, Row, Spinner} from "react-bootstrap";
+import Footer from "../components/Footer";
+
 
 const API_URL = "http://localhost:5005";
 
@@ -27,20 +28,21 @@ function GalleryPage() {
   if (!paintings) {
     return (
       <div>
-        <Circles color="#00BFFF" height={80} width={80}/>
+       <Spinner animation="border" />
       </div>
     );
   }
 
   return (
     <div className="PaintingListPage">
-      <Container>
+      <Container style={{marginBottom: 20}}>
         <Row md={4}>
           {paintings.map((painting) => (
             <PaintingCard key={painting.id} {...painting} />
           ))}
         </Row>
       </Container>
+      <Footer/>
     </div>
   );
 }

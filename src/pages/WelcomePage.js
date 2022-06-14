@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logo from "../assets/ARTGRAM.png";
+import Logo from "../assets/ARTGRAM-wlc.png";
 
 function WelcomePage() {
   return (

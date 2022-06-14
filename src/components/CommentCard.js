@@ -1,42 +1,60 @@
-import { useContext } from "react";
-import { Button, Card } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Button, Card, CloseButton } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-function CommentCard({ comment }) {
-
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
+function CommentCard(props, { comment, user }) {
+  const[painting, setPainting] = useState("");
   const { commentId, paintingId } = useParams();
 
   const navigate = useNavigate();
 
   const deleteComment = () => {
     const storedToken = localStorage.getItem("authToken");
+    console.log(props);
     axios
-      .delete(`${API_URL}/api/paintings/comments/${commentId}`, {
+      .delete(`${API_URL}/api/paintings/comments/${props.commentId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
+        props.refreshcomments();
         navigate(`/paintings/${paintingId}`);
       })
       .catch((err) => console.log(err));
-      }
+  };
+
+  const getPainting = () => {
+    const storedToken = localStorage.getItem("authToken");
+
+    axios
+      .get(`${API_URL}/api/paintings/${paintingId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        const onePainting = response.data;
+        setPainting(onePainting);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getPainting();
+  }, []);
 
   return (
     <div className="Commentcard">
       <Card>
-        <Card.Header>{user && user.name}</Card.Header>
+        <Card.Header>{props.user}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
             <p>
-              {comment}
+              {props.comment} 
             </p>
+            <CloseButton refreshcomments={getPainting} onClick={deleteComment} paintingId={paintingId} />
           </blockquote>
-          <Button variant="light" onClick={deleteComment}>X</Button>
         </Card.Body>
       </Card>
     </div>

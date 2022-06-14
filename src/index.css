@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:url("./assets/Background.png");
 }
 
 code {
@@ -121,6 +122,6 @@ text-align: justify;
 
 }
 
-.PaintingDetails img{
-  width: 100%;
+.hr{
+  margin: 0;
 }
