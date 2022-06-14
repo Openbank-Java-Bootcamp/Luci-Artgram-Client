@@ -1,15 +1,20 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import AddComment from "../components/AddComment";
 import CommentCard from "../components/CommentCard";
+import { AuthContext } from "../context/auth.context";
+
 
 const API_URL = "http://localhost:5005";
 
 function PaintingDetailsPage(props) {
   const [painting, setPainting] = useState(null);
+
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+ 
 
   const { paintingId } = useParams();
 
@@ -41,12 +46,15 @@ function PaintingDetailsPage(props) {
                 <img src={`data:image/png;base64,${painting.picturePath}`} />
                 <h3>{painting.title}</h3>
                 <p>{painting.description}</p>
+                <h6>Artist: {user && user.name}</h6>
+                <hr></hr>
               </>
             )}
-          </div>
+          </div> 
+          {painting && painting.comments.map((comment) => <CommentCard key={comment.id} {...comment}/> )}
           <AddComment refreshPainting={getPainting} paintingId={paintingId}/>
 
-          {painting && painting.comments.map((comment) => <CommentCard key={comment.id} {...comment}/> )}
+         
          <p></p>
           <Link to="/paintings">
             <Button variant="light">Back to Gallery</Button>

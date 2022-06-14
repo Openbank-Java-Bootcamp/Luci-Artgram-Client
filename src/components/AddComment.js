@@ -21,22 +21,23 @@ function AddComment(props) {
     const storedToken = localStorage.getItem("authToken");
 
     axios
-      .post(`${API_URL}/api/paintings/${paintingId}/comment`, requestBody, {
+      .post(`${API_URL}/api/paintings/comments`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         setComment("");
 
-        props.refreshProject();
+        props.refreshPainting();
         navigate("/paintings");
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter your comment" />
+        <Form.Control type="text" placeholder="Enter your comment" value={comment}
+          onChange={(e) => setComment(e.target.value)} />
       </Form.Group>
       <Button variant="dark" type="submit">
         Add comment

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PaintingCard from "../components/PaintingCard";
 import { Container, Row} from "react-bootstrap";
+import { Circles } from "react-loader-spinner";
 
 const API_URL = "http://localhost:5005";
 
@@ -22,6 +23,14 @@ function GalleryPage() {
   useEffect(() => {
     getAllPaintings();
   }, []);
+
+  if (!paintings) {
+    return (
+      <div>
+        <Circles color="#00BFFF" height={80} width={80}/>
+      </div>
+    );
+  }
 
   return (
     <div className="PaintingListPage">

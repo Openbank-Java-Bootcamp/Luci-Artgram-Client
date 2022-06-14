@@ -11,7 +11,7 @@ import PaintingDetailsPage from "./pages/PaintingDetailsPage";
 import EditPaintingPage from "./pages/EditPaintingPage";
 import GalleryPage from "./pages/GalleryPage";
 import AddPaintingPage from "./pages/AddPaintingPage";
-import Header from "./components/Navbar";
+import Header from "./components/Header";
 
 function App() {
   return (

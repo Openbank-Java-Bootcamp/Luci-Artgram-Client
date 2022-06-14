@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import PaintingCard from "../components/PaintingCard";
+import { Circles } from "react-loader-spinner";
 
 const API_URL = "http://localhost:5005";
 
@@ -25,6 +26,14 @@ function ProfilePage(props) {
   useEffect(() => {
     getAllUserPaintings();
   }, []);
+
+  if (!userPaintings) {
+    return (
+      <div>
+        <Circles color="#00BFFF" height={80} width={80}/>
+      </div>
+    );
+  }
 
   return (
     <div className="ProfilePage">
