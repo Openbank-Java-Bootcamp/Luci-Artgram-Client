@@ -6,7 +6,8 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-function CommentCard(props, { comment, user }) {
+function CommentCard(props, {comment}) {
+  console.log(comment)
   const[painting, setPainting] = useState("");
   const { commentId, paintingId } = useParams();
 
@@ -26,34 +27,20 @@ function CommentCard(props, { comment, user }) {
       .catch((err) => console.log(err));
   };
 
-  const getPainting = () => {
-    const storedToken = localStorage.getItem("authToken");
-
-    axios
-      .get(`${API_URL}/api/paintings/${paintingId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        const onePainting = response.data;
-        setPainting(onePainting);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getPainting();
-  }, []);
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <div className="Commentcard">
       <Card>
-        <Card.Header>{props.user}</Card.Header>
+        {/* <Card.Header>{}</Card.Header> */}
         <Card.Body>
           <blockquote className="blockquote mb-0">
             <p>
               {props.comment} 
             </p>
-            <CloseButton refreshcomments={getPainting} onClick={deleteComment} paintingId={paintingId} />
+            <CloseButton onClick={() => {deleteComment(); refreshPage();}} paintingId={paintingId} />
           </blockquote>
         </Card.Body>
       </Card>

@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 function PaintingCard({ picturePath, title, id, user }) {
  
-
+  console.log(user)
   return (
     <div>
       <Card className="cards" style={{ width: "20rem", height: "30rem" }}>
@@ -18,7 +18,7 @@ function PaintingCard({ picturePath, title, id, user }) {
             />
             <Card.Body>
               <Card.Title >
-                {title} - {user && user.name} 
+                {title} - {user.name} 
               </Card.Title>
              
             </Card.Body>

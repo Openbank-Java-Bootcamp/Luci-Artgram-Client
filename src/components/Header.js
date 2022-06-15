@@ -20,6 +20,7 @@ function Header() {
  
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+
   useEffect(() => {
     const fetchSearchedArtists = async () => {
       try {
@@ -54,9 +55,10 @@ function Header() {
                   <NavDropdown
                     title={
                       <img
-                        src={`data:image/png;base64,${user && user.avatar}`}
+                        src={`data:image/png;base64,${user.avatar}`}
                         alt="user-avatar"
                         width="30"
+                        className="avatar-nav"
                       />
                     }
                     id="basic-nav-dropdown"
@@ -69,7 +71,7 @@ function Header() {
                       LOGOUT
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Search searchHandler={searchHandler} />
+                  {/* <Search searchHandler={searchHandler} /> */}
                   
                   
                 </>

@@ -17,7 +17,9 @@ function GalleryPage() {
       .get(`${API_URL}/api/paintings`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => setPaintings(response.data))
+      .then((response) => {
+        setPaintings(response.data)
+      })
       .catch((error) => console.log(error));
   };
 

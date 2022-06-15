@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/auth.context";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
@@ -11,6 +12,10 @@ const API_URL = "http://localhost:5005";
 
 function PaintingDetailsPage(props) {
   const [painting, setPainting] = useState(null);
+  const [isUserEditor, setIsUserEditor] = useState(false);
+
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  
 
   const { paintingId } = useParams();
 
@@ -32,47 +37,63 @@ function PaintingDetailsPage(props) {
     getPainting();
   }, []);
 
-  return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md={6}>
-          <div className="PaintingDetails">
-            {painting && (
-              <>
-                <img
-                  width={350}
-                  src={`data:image/png;base64,${painting.picturePath}`}
-                />
-                <h3>{painting.title}</h3>
+  const userEditDisplay = () => {
+    if (user && painting) {
+      console.log(painting)
+      console.log(user)
 
-                <p>Description: {painting.description}</p>
-                <h6>Artist: {}</h6>
-                <LikeButton />
-                <hr></hr>
-              </>
-            )}
-          </div>
-          {painting &&
-            painting.comments.map((comment) => (
-              <CommentCard
-                key={comment.id}
-                commentId={comment.id}
-                {...comment}
-              />
-            ))}
-          <AddComment refreshPainting={getPainting} paintingId={paintingId} />
-
-          <p></p>
-          <Link to="/paintings">
-            <Button variant="light">Back to Gallery</Button>
-          </Link>
-
+      if (user.name === painting.user.name) {
+        return (
           <Link to={`/paintings/edit/${paintingId}`}>
             <Button variant="dark">Edit Painting</Button>
           </Link>
-        </Col>
-      </Row>
-    </Container>
+        );
+      } 
+    }else{
+      return <></>
+    }
+  };
+
+  return (
+    <div className="paint-det">
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md={6}>
+            <div className="PaintingDetails">
+              {painting && (
+                <div>
+                  <img
+                    width={350}
+                    src={`data:image/png;base64,${painting.picturePath}`}
+                  />
+                  <h3>{painting.title}</h3>
+
+                  <p>Description: {painting.description}</p>
+                  <h6>Artist: {painting.user.name}</h6>
+                  <LikeButton />
+                  <hr></hr>
+                </div>
+              )}
+            </div>
+            {painting &&
+              painting.comments.map((comment) => (
+                <CommentCard
+                  key={comment.id}
+                  commentId={comment.id}
+                  {...comment}
+                />
+              ))}
+            <AddComment refreshPainting={getPainting} paintingId={paintingId} />
+
+            <p></p>
+            <Link to="/paintings">
+              <Button variant="light">Back to Gallery</Button>
+            </Link>
+            {userEditDisplay()}
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

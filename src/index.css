@@ -90,6 +90,17 @@ text-align: justify;
   margin-top: 15px;
   
 }
+.mar{
+  margin-top: 10px;
+}
+
+.nomar{
+  margin-bottom: 0;
+}
+
+.paint-det{
+  margin-top: 20px;
+}
 
 .logo{
   width: 220px;
@@ -124,4 +135,12 @@ text-align: justify;
 
 .hr{
   margin: 0;
+}
+
+.footer{
+  margin-top: 950px;
+}
+
+.avatar-nav{
+  border-radius: 100%;
 }
