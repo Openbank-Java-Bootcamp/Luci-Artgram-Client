@@ -144,3 +144,45 @@ text-align: justify;
 .avatar-nav{
   border-radius: 100%;
 }
+
+.btn-close{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.box-content-comment{
+  background-color: #fff;
+  max-height: 640px;
+  overflow-y: scroll;
+  min-height: 640px;
+  padding: 20px;
+}
+
+.link-back{
+  margin: 0 10px;
+}
+
+.card-title {
+  margin-bottom: .5rem;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  left: 0;
+}
+
+
+.card-link img {
+  height: 400px;
+  object-fit: contain;
+}
+
+
+.PaintingDetails{
+  background-color: #fff;
+  padding: 20px;
+}
+
+.PaintingDetails img {
+  border: 2px solid #000;
+}

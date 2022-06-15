@@ -10,6 +10,7 @@ function EditPaintingPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+
   const { paintingId } = useParams();
 
   const navigate = useNavigate();
@@ -117,5 +118,3 @@ function EditPaintingPage(props) {
 }
 
 export default EditPaintingPage;
-
-//DELETE BUTTON DOESN'T WORK

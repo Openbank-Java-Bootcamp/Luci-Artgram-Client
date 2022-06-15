@@ -15,7 +15,6 @@ function PaintingDetailsPage(props) {
   const [isUserEditor, setIsUserEditor] = useState(false);
 
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  
 
   const { paintingId } = useParams();
 
@@ -39,8 +38,8 @@ function PaintingDetailsPage(props) {
 
   const userEditDisplay = () => {
     if (user && painting) {
-      console.log(painting)
-      console.log(user)
+      console.log(painting);
+      console.log(user);
 
       if (user.name === painting.user.name) {
         return (
@@ -48,9 +47,9 @@ function PaintingDetailsPage(props) {
             <Button variant="dark">Edit Painting</Button>
           </Link>
         );
-      } 
-    }else{
-      return <></>
+      }
+    } else {
+      return <></>;
     }
   };
 
@@ -66,27 +65,33 @@ function PaintingDetailsPage(props) {
                     width={350}
                     src={`data:image/png;base64,${painting.picturePath}`}
                   />
-                  <h3>{painting.title}</h3>
+                 
+                    <h3>{painting.title}</h3>
 
-                  <p>Description: {painting.description}</p>
-                  <h6>Artist: {painting.user.name}</h6>
-                  <LikeButton />
-                  <hr></hr>
+                    <p>Description: {painting.description}</p>
+                    <h6>Artist: {painting.user.name}</h6>
+                    <LikeButton />
+                 
                 </div>
               )}
             </div>
-            {painting &&
-              painting.comments.map((comment) => (
-                <CommentCard
-                  key={comment.id}
-                  commentId={comment.id}
-                  {...comment}
-                />
-              ))}
-            <AddComment refreshPainting={getPainting} paintingId={paintingId} />
+          </Col>
+          <Col md={6}>
+            <div className="box-content-comment">
+              {painting &&
+                painting.comments.map((comment) => (
+                  <CommentCard
+                    key={comment.id}
+                    commentId={comment.id}
+                    {...comment}
+                  />
+                ))}
+            </div>
 
-            <p></p>
-            <Link to="/paintings">
+            <AddComment refreshPainting={getPainting} paintingId={paintingId} />
+          </Col>
+          <Col xs={12}>
+            <Link className="link-back" to="/paintings">
               <Button variant="light">Back to Gallery</Button>
             </Link>
             {userEditDisplay()}

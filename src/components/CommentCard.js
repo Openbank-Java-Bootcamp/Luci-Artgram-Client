@@ -32,6 +32,7 @@ function CommentCard(props, {comment}) {
   }
 
   return (
+    
     <div className="Commentcard">
       <Card>
         {/* <Card.Header>{}</Card.Header> */}
@@ -45,6 +46,9 @@ function CommentCard(props, {comment}) {
         </Card.Body>
       </Card>
     </div>
+
+
+    
   );
 }
 

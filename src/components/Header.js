@@ -47,12 +47,12 @@ function Header() {
             <Nav className="me-auto">
               {isLoggedIn && (
                 <>
-                  <Navbar.Brand href="/paintings">
+                  <Navbar.Brand style={{fontSize: 30}} href="/paintings">
                     ARTGRAM
                   </Navbar.Brand>
-                  <Nav.Link href="/paintings">Gallery</Nav.Link>
-                  <Nav.Link href="/newPainting">New Painting</Nav.Link>
-                  <NavDropdown
+                  <Nav.Link style={{marginLeft: 25, marginTop:10}} href="/paintings">Gallery</Nav.Link>
+                  <Nav.Link style={{marginLeft: 25, marginTop:10}} href="/newPainting">New Painting</Nav.Link>
+                  <NavDropdown style={{marginLeft: 830}}
                     title={
                       <img
                         src={`data:image/png;base64,${user.avatar}`}
@@ -80,16 +80,10 @@ function Header() {
                 <>
                   {" "}
                  
-                  <Navbar.Brand style={{fontSize:25 }} href="/"> ARTGRAM
-                    {/* <img
-                      src={Logo}
-                      width="45"
-                      className="d-inline-block align-top"
-                      alt="logo"
-                    /> */}
+                  <Navbar.Brand style={{fontSize:30 }} href="/"> ARTGRAM
                   </Navbar.Brand> 
-                  <Nav.Link href="/signup">SIGN UP</Nav.Link>
-                  <Nav.Link variant="dark" href="/login">JOIN ARTGRAM</Nav.Link>
+                  <Nav.Link  style={{marginLeft: 25, marginTop:8}} href="/signup">SIGN UP</Nav.Link>
+                  <Nav.Link  style={{marginLeft: 25, marginTop:8}} variant="dark" href="/login">JOIN ARTGRAM</Nav.Link>
                 </>
               )}
             </Nav>

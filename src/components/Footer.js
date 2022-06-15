@@ -47,8 +47,8 @@ function Footer() {
                 <h6 className="text-uppercase fw-bold mb-4 mar">Contact</h6>
                 <p>Madrid, MD 28030, SP</p>
                 <p>contact@artgram.com</p>
-                <p>+ 01 234 567 88</p>
-                <p className="nomar">+ 01 234 567 89</p>
+                <p>+ 34 234 567 88</p>
+                <p className="nomar">+ 34 234 567 89</p>
               </div>
             </div>
           </div>

@@ -1,14 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import PaintingCard from "../components/PaintingCard";
 import { Circles } from "react-loader-spinner";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
 function ProfilePage(props) {
   const [userPaintings, setUserPaintings] = useState([]);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const { userId, paintingId } = useParams();
 
@@ -27,17 +29,11 @@ function ProfilePage(props) {
     getAllUserPaintings();
   }, []);
 
-  if (!userPaintings) {
-    return (
-      <div>
-        <Circles color="#00BFFF" height={80} width={80} />
-      </div>
-    );
-  }
-
   return (
     <div className="ProfilePage">
       <Container>
+        <p style={{ margin: 10, fontSize: 30 }}>{user && user.name} </p>
+
         <Row md={4}>
           {userPaintings.map((paint) => (
             <PaintingCard key={paint.id} {...paint} />
