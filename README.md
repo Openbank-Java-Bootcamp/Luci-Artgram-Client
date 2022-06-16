@@ -33,7 +33,8 @@ SPA Frontend with React, Javascript, Bootstrap, Axios, React-router-dom.
 <img src="">
 
 ## Demo
-  <img src="">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot2.png">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot4.png">
 
 ## Future Work
 - Improve security system
