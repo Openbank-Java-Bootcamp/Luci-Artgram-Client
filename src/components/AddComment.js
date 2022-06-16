@@ -38,7 +38,7 @@ function AddComment(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter your comment" value={comment}
+        <Form.Control style={{padding: 12}} type="text" placeholder="Enter your comment" value={comment}
           onChange={(e) => setComment(e.target.value)} />
       </Form.Group>
       <Button variant="dark" type="submit">

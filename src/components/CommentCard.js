@@ -38,7 +38,7 @@ function CommentCard(props, {comment}) {
     <div className="Commentcard">
       <Card>
         {/* <Card.Header>{}</Card.Header> */}
-        <Card.Body>
+        <Card.Body style={{padding: 4}}>
           <blockquote className="blockquote mb-0">
             <p>
               {props.comment} 

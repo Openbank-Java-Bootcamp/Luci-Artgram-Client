@@ -111,7 +111,7 @@ function EditPaintingPage(props) {
          <Form.Label>
           <h1></h1>
         </Form.Label>
-        <Button variant="dark" type="submit">Edit</Button>
+        <Button variant="dark" type="submit">Save</Button>
       </Form>
       <p></p>
       <Button variant="secondary" onClick={deletePainting}>Delete Painting</Button>  
