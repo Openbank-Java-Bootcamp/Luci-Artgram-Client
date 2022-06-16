@@ -30,11 +30,32 @@ SPA Frontend with React, Javascript, Bootstrap, Axios, React-router-dom.
 
 ## Components and Pages structure
 
-<img src="">
+1. Components: 
+  - ADD COMMENT.
+  - COMMENT CARD.
+  - HEADER.
+  - FOOTER.
+  - IS ANON.
+  - IS PRIVATE.
+  - LIKE BUTTON.
+  - PAINTING CARD.
+3. Pages structure:
+  - Welcome Page.
+  - Sign up Page.
+  - Login Page.
+  - Gallery Page.
+  - Profile Page.
+  - Painting Details Page.
+  - Add Painting Page.
+  - Edit Painting Page.
 
 ## Demo
   <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot2.png">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot1.png">
   <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot4.png">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot3.png">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot5.png">
+  <img src="https://github.com/Openbank-Java-Bootcamp/Luci-Artgram-Client/blob/master/Screenshot6.png">
 
 ## Future Work
 - Improve security system
