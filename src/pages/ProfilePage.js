@@ -8,6 +8,8 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
+// Profile Page with all the User Paintings where he/she can add/edit/delete the paintings
+
 function ProfilePage(props) {
   const [userPaintings, setUserPaintings] = useState([]);
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);

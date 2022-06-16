@@ -1,6 +1,8 @@
 import { MDBFooter } from "mdb-react-ui-kit";
 import Art from "../assets/ARTGRAM-wlc.png";
 
+// Add a Footer at the end of the Gallery Page
+
 function Footer() {
   return (
     <div className="footer">

@@ -1,5 +1,4 @@
-import Logo from "../assets/ARTGRAM.png";
-import Artlogo from "../assets/ARTGRAM-logo.png"
+
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
@@ -9,8 +8,8 @@ import {
   Nav,
   NavDropdown
 } from "react-bootstrap";
-import Search from "./Search";
-import { Alert } from "bootstrap";
+
+// Navbar 
 
 const API_URL = "http://localhost:5005";
 
@@ -20,6 +19,7 @@ function Header() {
  
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+// UseEffect for search bar
 
   useEffect(() => {
     const fetchSearchedArtists = async () => {

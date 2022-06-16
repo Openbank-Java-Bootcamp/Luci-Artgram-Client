@@ -10,6 +10,8 @@ import LikeButton from "../components/LikeButton";
 
 const API_URL = "http://localhost:5005";
 
+// Details Page to see Artist, Title, Description and Comments
+
 function PaintingDetailsPage(props) {
   const [painting, setPainting] = useState(null);
   const [isUserEditor, setIsUserEditor] = useState(false);

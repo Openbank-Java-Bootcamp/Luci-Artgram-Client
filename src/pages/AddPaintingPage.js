@@ -5,6 +5,8 @@ import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
+//Page to add a new painting
+
 function AddPaintingPage(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");

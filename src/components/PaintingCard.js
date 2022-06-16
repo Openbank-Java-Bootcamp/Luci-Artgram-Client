@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import { Card } from "react-bootstrap";
-import LikeButton from "./LikeButton";
-import { useContext } from "react";
+
+// Painting Card with the picture, title and Artist name
 
 function PaintingCard({ picturePath, title, id, user }) {
   console.log(user);

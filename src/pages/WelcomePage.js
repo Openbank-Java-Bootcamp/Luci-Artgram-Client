@@ -2,6 +2,8 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logo from "../assets/ARTGRAM-wlc.png";
 
+// Principal Page where you can Sign up or Login
+
 function WelcomePage() {
   return (
     <div className="Welcome">

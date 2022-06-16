@@ -4,6 +4,7 @@ import PaintingCard from "../components/PaintingCard";
 import { Container, Row, Spinner} from "react-bootstrap";
 import Footer from "../components/Footer";
 
+//Page with all paintings
 
 const API_URL = "http://localhost:5005";
 

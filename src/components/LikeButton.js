@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
+// Like button
+
 function LikeButton() {
   const [counter, setCounter] = useState(0);
   const [liked, setLiked] = useState(null);

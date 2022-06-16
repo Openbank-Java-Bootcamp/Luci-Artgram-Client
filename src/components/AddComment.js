@@ -3,6 +3,8 @@ import axios from "axios";
 import { Button, Form } from "react-bootstrap";
 
 
+// Add new comment in a Picture
+
 const API_URL = "http://localhost:5005";
 
 function AddComment(props) {

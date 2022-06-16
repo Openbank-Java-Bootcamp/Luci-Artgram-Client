@@ -5,6 +5,8 @@ import { Button, Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
+//Page where you can edit a Painting (only its own artist can edit or delete)
+
 function EditPaintingPage(props) {
   const [picturePath, setPicturePath] = useState("");
   const [title, setTitle] = useState("");

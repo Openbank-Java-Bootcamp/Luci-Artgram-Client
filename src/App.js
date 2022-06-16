@@ -12,7 +12,7 @@ import EditPaintingPage from "./pages/EditPaintingPage";
 import GalleryPage from "./pages/GalleryPage";
 import AddPaintingPage from "./pages/AddPaintingPage";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -20,14 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route
-          path="/paintings"
-          element={
-     
-              <GalleryPage />
-        
-          }
-        />
+        <Route path="/paintings" element={<GalleryPage />} />
         <Route
           path="/paintings/:paintingId"
           element={

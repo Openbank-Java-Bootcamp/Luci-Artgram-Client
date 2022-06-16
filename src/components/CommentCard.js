@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
+//  comments in a Picture
+
 const API_URL = "http://localhost:5005";
 
 function CommentCard(props, {comment}) {

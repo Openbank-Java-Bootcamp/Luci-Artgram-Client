@@ -9,6 +9,8 @@ function Search({ searchHandler }) {
     searchHandler(e.target.value);
   };
 
+  //Search Form to search by Artist name
+
   return (
     <>
       <Form className="d-flex">

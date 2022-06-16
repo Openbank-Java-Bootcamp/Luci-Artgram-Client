@@ -7,6 +7,8 @@ import { Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
+// Login page where you check if user exists and can access to App
+
 function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

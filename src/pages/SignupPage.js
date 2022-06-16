@@ -6,6 +6,8 @@ import { Form } from "react-bootstrap";
 
 const API_URL = "http://localhost:5005";
 
+// sign un page to save a new User
+
 function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
