@@ -30,16 +30,17 @@ SPA Frontend with React, Javascript, Bootstrap, Axios, React-router-dom.
 
 ## Components and Pages structure
 
-1. Components: 
-  - ADD COMMENT.
-  - COMMENT CARD.
-  - HEADER.
-  - FOOTER.
-  - IS ANON.
-  - IS PRIVATE.
-  - LIKE BUTTON.
-  - PAINTING CARD.
-3. Pages structure:
+1. COMPONENTS: 
+  - Add Comment.
+  - Comment Card.
+  - Header.
+  - Footer.
+  - Is Anon.
+  - Is Private.
+  - Like Button.
+  - Painting Card.
+  
+2. PAGES STRUCTURE:
   - Welcome Page.
   - Sign up Page.
   - Login Page.
